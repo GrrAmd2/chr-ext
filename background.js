@@ -16,7 +16,7 @@ function replaceWords(listWords, colorIdentifier) {
     let body = document.body;
     listWords.forEach(element => {
         console.log("typeof =>", typeof element)
-        const reg = new RegExp(element + "$");
+        const reg = new RegExp("^" + element + "$", "gim");
 
         console.log("REG TEST", element, reg.test(body.innerHTML))
         if (reg.test(body.innerHTML)) {
