@@ -1,11 +1,26 @@
 {
-    "name": "Extension 'chicas en tecnologias'",
-    "description": "Resaltar una lista de palabras en la web y compartir estos resultados",
-    "version": "0.0.1",
-    "manifest_version": 3,
-    "permissions": ["activeTab", "scripting"],
-    "action": {
-        "default_popup": "popup.html",
-        "default_icon": "icon.png"
-    }
+	"manifest_version": 3,
+	"name": "Chicas en tecnologías",
+	"version": "0.0.1",
+	"description": "Highlight male and female words from a list and share results to Facebook, Tweeter and WhatsApp",
+	"default_locale": "es",
+	"action": {
+		"default_icon": {
+			"16": "icon.png",
+			"24": "icon.png",
+			"32": "icon.png"
+		},
+		"default_title": "Chicas en tecnología",
+		"default_popup": "popup.html"
+	},
+	"icons": {
+		"16": "icon.png",
+		"48": "icon.png",
+		"128": "icon.png"
+	},
+	"content_scripts": {
+		"matches": ["*"],
+		"js": ["filter.js"]
+	},
+	"permissions": ["activeTab"]
 }
