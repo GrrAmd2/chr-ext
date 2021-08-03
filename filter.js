@@ -1,4 +1,10 @@
 // Extension filtering configurations
+const maleColor = "yellow";
+const maleWords = ["el"];
+
+const femaleColor = "violete";
+const femaleWords = ["la"];
+
 const settings = {
 	male: {
 		color: maleColor,
@@ -45,7 +51,8 @@ const filterContent = () => {
 
 // Message listener
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-	if (message === "cet-run-filter") {
-		sendResponse(filterContent());
+	if (message.message === "run-filter") {
+		console.log("run filter");
+		chrome.runtime.sendMessage({ message: "run-filter-successfull" });
 	}
 });

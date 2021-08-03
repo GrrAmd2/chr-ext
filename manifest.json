@@ -3,7 +3,7 @@
 	"name": "Chicas en tecnologías",
 	"version": "0.0.1",
 	"description": "Highlight male and female words from a list and share results to Facebook, Tweeter and WhatsApp",
-	"default_locale": "es",
+
 	"action": {
 		"default_icon": {
 			"16": "icon.png",
@@ -18,9 +18,12 @@
 		"48": "icon.png",
 		"128": "icon.png"
 	},
-	"content_scripts": {
-		"matches": ["*"],
-		"js": ["filter.js"]
-	},
+
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["filter.js"]
+		}
+	],
 	"permissions": ["activeTab"]
 }
