@@ -1,24 +1,37 @@
-// Initialize button with user's preferred color
-let changeColor = document.getElementById("changeColor");
+// Counters
+const maleCounter = document.querySelector("#maleCounter");
+const femaleCounter = document.querySelector("#femaleCounter");
+// Share button
+const shareBtn = document.querySelector("#shareBtn");
+const buttonBack = document.querySelector("#buttonBack");
 
-chrome.storage.sync.get("color", ({ color }) => {
-	changeColor.style.backgroundColor = color;
+buttonBack.addEventListener("click", () =>{
+	const shareSection = document.getElementById("shareSection");
+	const counterSection = document.getElementById("counterSection");
+	shareSection.style.display = 'none';
+	counterSection.style.display = 'block';
+})
+
+shareBtn.addEventListener("click", () => {
+	showShareSection();
 });
 
-// When the button is clicked, inject setPageBackgroundColor into current page
-changeColor.addEventListener("click", async () => {
-	let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
-	chrome.scripting.executeScript({
-		target: { tabId: tab.id },
-		function: setPageBackgroundColor,
-	});
-});
-
-// The body of this function will be executed as a content script inside the
-// current page
-function setPageBackgroundColor() {
-	chrome.storage.sync.get("color", ({ color }) => {
-		document.body.style.backgroundColor = color;
-	});
+function showShareSection(){
+	const shareSection = document.getElementById("shareSection");
+	const counterSection = document.getElementById("counterSection");
+	shareSection.style.display = 'block';
+	counterSection.style.display = 'none';
 }
+
+
+// Send message to run word-filter
+chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+	chrome.tabs.sendMessage(tabs[0].id, { action: "run-filter" });
+});
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+	if (message.status === "run-filter-successful") {
+		femaleCounter.innerHTML = message.counters.female;
+		maleCounter.innerHTML = message.counters.male;
+	}
+});

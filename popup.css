@@ -1,12 +1,131 @@
-button {
-	height: 30px;
-	width: 30px;
-	outline: none;
-	margin: 10px;
-	border: none;
-	border-radius: 2px;
+body {
+  color: #939195;
+  width: 256px;
+  font-size: 1rem;
 }
 
-button.current {
-	box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+.d-flex {
+  display: flex;
+}
+
+.counter {
+  font-weight: 600;
+}
+
+.container-counter {
+  max-width: 70%;
+  text-align: center;
+  margin-bottom: 20px;
+  height: 4rem;
+  border-radius: 12px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.male {
+  background-color: #f8d371;
+}
+
+.female {
+  background-color: #a0e6e1;
+}
+
+.container-main {
+  padding: 20px;
+  text-align: -webkit-center;
+}
+
+.footer {
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-share {
+  background-color: #262626;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  max-width: 50%;
+  font-weight: bold;
+}
+
+.fa {
+  margin-right: 15px;
+}
+
+.back-button {
+  display: block;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  border: 1px solid red;
+}
+
+.back-button:hover {
+  background: #eb2f06;
+}
+
+
+.smGlobalBtn{ /* global button class */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 2px #999;
+    padding: 0px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 25px;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
+}
+
+.facebookBtn{
+    background: #4060A5;
+}
+
+.facebookBtn:before{ /* use :before to add the relevant icons */
+    font-family: "FontAwesome";
+    content: "\f09a"; /* add facebook icon */
+}
+
+.facebookBtn:hover{
+    color: #4060A5;
+    background: #fff;
+}
+
+/* twitter button class*/
+.twitterBtn{
+    background: #00ABE3;
+}
+
+.twitterBtn:before{
+      font-family: "FontAwesome";
+      content: "\f099"; /* add twitter icon */
+}
+
+.twitterBtn:hover{
+      color: #00ABE3;
+      background: #fff;
+}
+
+.whatsappBtn{
+	background: #25D366;
+}
+
+.whatsappBtn:before{
+	font-family: "FontAwesome";
+	content: "\f232"; /* add whatsapp icon */
+}
+
+.whatsappBtn:hover{
+	color: #fff;
+	background: #128C7E;
 }

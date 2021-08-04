@@ -1,18 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- CSS -->
 	<link rel="stylesheet" href="popup.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- JAVASCRIPT -->
+	<script src="./popup.js" defer></script>
 </head>
 
-<body>
-	<h3 id="maleWords"></h3>
-	<h3 id="femaleWords"></h3>
+<body class="container-main">
+	<section class="d-flex" id="counterSection" style="display: block;">
+		<h2>En esta web</h2>
 
-	<button id="runBtn" type="button">Run!</button>
+		<div class="d-flex container-counter female">
+			<span class="counter-text">Términos en femenino </span>
+			<span id="femaleCounter" class="counter">00</span>
+		</div>
+		<div class="container-counter d-flex male">
+			<span class="counter-text">Términos en masculino </span>
 
+			<span id="maleCounter" class="counter">00</span>
+		</div>
 
-	<script src="background.js"></script>
+		<footer class="d-flex footer">
+			<p>Chicas en tecnologia</p>
+
+			<button id="shareBtn" class="btn-share"><i class="fa fa-share"></i>Share</button>
+		</footer>
+
+	</section>
+
+	<section class="d-flex" id="shareSection" style="display: none;">
+		<button class="btn-share" id="buttonBack"><i class="fa fa-arrow-left"></i>Volver</button>
+
+		<h3>Compartir en:</h3>
+		<a class="facebookBtn smGlobalBtn" href="social-media-profile-url"></a>
+		<a class="twitterBtn smGlobalBtn" href="social-media-profile-url"></a>
+		<a class="whatsappBtn smGlobalBtn" href="social-media-profile-url"></a>
+	</section>
 </body>
 
 </html>
