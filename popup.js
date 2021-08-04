@@ -1,19 +1,20 @@
+// Counters
+const maleCounter = document.querySelector("#maleCounter");
+const femaleCounter = document.querySelector("#femaleCounter");
 // Share button
 const shareBtn = document.querySelector("#shareBtn");
 shareBtn.addEventListener("click", () => {
 	console.log("Compartido por cierta applicacion");
 });
 
-// Send message to run word-filter when everything is loaded
+// Send message to run word-filter
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-	console.log(tabs);
-	chrome.tabs.sendMessage(tabs[0].id, { message: "run-filter" }, (response) => {
-		console.log(response);
-	});
+	chrome.tabs.sendMessage(tabs[0].id, { action: "run-filter" });
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-	if (message.message === "run-filter-successfull") {
-		console.log("I got your message, Filter!");
+	if (message.status === "run-filter-successful") {
+		femaleCounter.innerHTML = message.counters.female;
+		maleCounter.innerHTML = message.counters.male;
 	}
 });

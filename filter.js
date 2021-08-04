@@ -1,5 +1,5 @@
 // Extension filtering configurations
-const maleColor = "yellow";
+const maleColor = "red";
 const maleWords = ["el"];
 
 const femaleColor = "violete";
@@ -22,7 +22,7 @@ const replaceWords = (words, backgroundColor) => {
 	let body = document.body;
 
 	words.forEach((word) => {
-		const reg = new RegExp(`\b${word}\b`, "gim");
+		const reg = new RegExp(`\\b${word}\\b`, "gim");
 
 		if (reg.test(body.innerHTML)) {
 			counter += body.innerHTML.match(reg).length;
@@ -32,7 +32,9 @@ const replaceWords = (words, backgroundColor) => {
 		// body.innerHTML??? puede ser)
 		body.innerHTML = body.innerHTML.replace(
 			reg,
-			`<mark style="background-color:${backgroundColor};">${word}</mark>`
+			(match, index, wholeString) => {
+				return `<mark style="background-color:${backgroundColor};">${match}</mark>`;
+			}
 		);
 	});
 
@@ -51,8 +53,12 @@ const filterContent = () => {
 
 // Message listener
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-	if (message.message === "run-filter") {
-		console.log("run filter");
-		chrome.runtime.sendMessage({ message: "run-filter-successfull" });
+	if (message.action === "run-filter") {
+		const data = filterContent();
+		chrome.runtime.sendMessage({
+			status: "run-filter-successful",
+			counters: data,
+		});
 	}
+	return true;
 });
