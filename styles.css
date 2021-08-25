@@ -1,0 +1,9 @@
+.male, mark {
+    padding: .2em;
+    background-color: red;
+}
+
+.female, mark {
+    padding: .2em;
+    background-color: violet;
+}
