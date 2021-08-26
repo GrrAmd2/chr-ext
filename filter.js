@@ -1,41 +1,40 @@
 // Extension filtering configurations
 const maleColor = "red";
-const maleWords = ["el"];
+const maleWords = ["desarrollador", "científico"];
 
-const femaleColor = "violete";
-const femaleWords = ["la"];
+const femaleColor = "violet";
+const femaleWords = ["desarrolladora", "cientifica"];
 
 const settings = {
 	male: {
 		color: maleColor,
 		words: maleWords,
+		className: "male"
 	},
 	female: {
 		color: femaleColor,
 		words: femaleWords,
+		className: "female"
 	},
 };
 
 // Functionalities
-const replaceWords = (words, backgroundColor) => {
+const replaceWords = (words, className) => {
 	let counter = 0;
 	let body = document.body;
+	const context = document.querySelector("html");
+	const instance = new Mark(context);
 
 	words.forEach((word) => {
 		const reg = new RegExp(`\\b${word}\\b`, "gim");
 
 		if (reg.test(body.innerHTML)) {
-			counter += body.innerHTML.match(reg).length;
+			counter += body.innerText.match(reg).length;
 		}
-
-		// Esto se debe cambiar para que reemplaze la palabra nativa, no la de la lista de filtrado (deberia hacer un recorrido del
-		// body.innerHTML??? puede ser)
-		body.innerHTML = body.innerHTML.replace(
-			reg,
-			(match, index, wholeString) => {
-				return `<mark style="background-color:${backgroundColor};">${match}</mark>`;
-			}
-		);
+		instance.mark(word, {
+			className,
+			accuracy: "exactly",
+		});
 	});
 
 	return counter;
@@ -44,9 +43,9 @@ const replaceWords = (words, backgroundColor) => {
 const filterContent = () => {
 	let femaleCounter = replaceWords(
 		settings.female.words,
-		settings.female.color
+		settings.female.className
 	);
-	let maleCounter = replaceWords(settings.male.words, settings.male.color);
+	let maleCounter = replaceWords(settings.male.words, settings.male.className);
 
 	return { male: maleCounter, female: femaleCounter };
 };
