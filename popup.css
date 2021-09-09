@@ -1,4 +1,10 @@
+@font-face {
+  font-family: 'DINNeuzeitGroteskStd-Light';
+  src: url('./DINNeuzeitGroteskStd-Light.otf') format('opentype');	
+}
+
 body {
+  font-family: 'DINNeuzeitGroteskStd-Light';
   color: #939195;
   width: 256px;
   font-size: 1rem;
@@ -10,16 +16,23 @@ body {
 
 .counter {
   font-weight: 600;
+  font-size: 1.5rem;
+  color: black;
 }
 
 .container-counter {
-  max-width: 70%;
   text-align: center;
   margin-bottom: 20px;
   height: 4rem;
   border-radius: 12px;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+}
+
+.counter-text{
+  font-size: 1.5rem;
+  width: 70%;
 }
 
 .male {
@@ -36,8 +49,9 @@ body {
 }
 
 .footer {
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
 }
 
 .btn-share {
@@ -128,4 +142,9 @@ body {
 .whatsappBtn:hover{
 	color: #fff;
 	background: #128C7E;
+}
+
+.logo{
+  width: 100px;
+  filter: brightness(0);
 }

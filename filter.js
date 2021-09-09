@@ -21,23 +21,37 @@ const settings = {
 // Functionalities
 const replaceWords = (words, className) => {
 	let counter = 0;
+	let tempCounter = [];
 	let body = document.body;
 	const context = document.querySelector("html");
 	const instance = new Mark(context);
 
 	words.forEach((word) => {
 		const reg = new RegExp(`\\b${word}\\b`, "gim");
+		
+		if (reg.test(body.innerText)) {
+			
+			// Cuenta solo una vez la palabra en el texto
+			if(!tempCounter.includes(word)){
+				tempCounter.push(word);
+			} 
+			
 
-		if (reg.test(body.innerHTML)) {
-			counter += body.innerText.match(reg).length;
+			// Cuenta todas las veces que aparece la palabra en el texto
+			//counter += body.innerText.match(reg).length;
+
 		}
-		instance.mark(word, {
-			className,
-			accuracy: "exactly",
-		});
+		instance.mark(word, {className, accuracy: "exactly"});
 	});
 
-	return counter;
+	if(tempCounter.length > 0){
+		counter = tempCounter.length;
+	}
+
+	return counter.toLocaleString('en-US',{
+		minimumIntegerDigits: 2,
+		useGrouping: false,
+	});
 };
 
 const filterContent = () => {
