@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- CSS -->
+		<link rel="stylesheet" href="popup.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="popup.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<!-- JAVASCRIPT -->
+		<script src="./popup.js" defer></script>
+	</head>
 
-    <!-- JAVASCRIPT -->
-    <script src="./popup.js" defer></script>
-</head>
+	<body class="container-main">
+		<main class="d-flex flex-column main-bg">
+			<div class="header word">
+				<button class="previous round" id="previous"></button>
+				<div class="counter-words">
+					<span class="current-count-word" d="current-count-word"></span> /
+					<span class="max-count-word" id="max-count-word"></span>
+				</div>
+				<button class="next round" id="next"></button>
+			</div>
+			<div class="current-word" id="current-word"></div>
+			<div class="content"></div>
 
-<body class="container-main">
-
-    <main class="d-flex flex-column main-bg">
-        <div class="header">
-            <button class="previous round" id="previous"></button>
-            <div class="counter-words">
-                <span id="current-count-word"></span> /
-                <span id="max-count-word"></span>
-            </div>
-            <button class="next round" id="next"></button>
-        </div>
-        <div class="current-word" id="current-word"></div>
-        <div class="content">
-
-        </div>
-
-        <div class="d-flex footer-bg footer">
-            <div class="share-text">
-                <h3>Comparte</h3>
-            </div>
-            <div class="icon-list">
-                <button class="icon whatsappBtn" id="share-whatsapp"></button>
-                <button class="icon twitterBtn" id="share-twitter"></button>
-            </div>
-            <div class="logo">
-                <a href="https://chicasentecnologia.org/" target="_blank" rel="noopener">
-                    <img src="vectorpaint.svg" alt="Logo" class="logo-img" />
-                </a>
-            </div>
-        </div>
-    </main>
-</body>
-
+			<div class="d-flex footer-bg footer">
+				<div class="share-text">
+					<h3>Comparte</h3>
+				</div>
+				<div class="icon-list">
+					<button class="icon whatsappBtn" id="share-whatsapp"></button>
+					<button class="icon twitterBtn" id="share-twitter"></button>
+				</div>
+				<div class="logo">
+					<a
+						href="https://chicasentecnologia.org/"
+						target="_blank"
+						rel="noopener"
+					>
+						<img src="vectorpaint.svg" alt="Logo" class="logo-img" />
+					</a>
+				</div>
+			</div>
+		</main>
+	</body>
 </html>

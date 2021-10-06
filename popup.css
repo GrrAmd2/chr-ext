@@ -1,171 +1,207 @@
 @font-face {
-  font-family: "DINNeuzeitGroteskStd-Light";
-  src: url("./DINNeuzeitGroteskStd-Light.otf") format("opentype");
+	font-family: "DINNeuzeitGroteskStd-Light";
+	src: url("./DINNeuzeitGroteskStd-Light.otf") format("opentype");
 }
-.header {
-  display: flex;
-  align-self: center;
-  padding: 3px;
-  font-size: 1.5rem;
-}
+
+/* General */
 body {
-  font-family: "DINNeuzeitGroteskStd-Light";
-  background-color: #5b0099;
-  width: 350px;
-  font-size: 1rem;
+	font-family: "DINNeuzeitGroteskStd-Light";
+	background-color: #5b0099;
+	width: 350px;
+	font-size: 1rem;
+	margin: 0 auto;
 }
 
-.container-main {
-  margin: 0 auto;
-}
-
-.d-flex {
-  display: flex;
+/* Header */
+.header {
+	display: flex;
+	align-self: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 3px;
+	font-size: 1.5rem;
 }
 
 .back-button {
-  display: block;
-  height: 300px;
-  width: 300px;
-  border-radius: 50%;
-  border: 1px solid red;
+	display: block;
+	height: 300px;
+	width: 300px;
+	border-radius: 50%;
+	border: 1px solid red;
 }
 
 .back-button:hover {
-  background: #eb2f06;
+	background: #eb2f06;
 }
 
 .icon {
-  color: #ffffff;
-  font-size: 2rem;
-  padding: 5px;
-  border: none;
+	color: #ffffff;
+	font-size: 2rem;
+	padding: 5px;
+	border: none;
 }
 
 .icon:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 /* twitter button class*/
 .twitterBtn {
-  background: transparent;
+	background: transparent;
 }
 
 .twitterBtn:before {
-  font-family: "FontAwesome";
-  content: "\f099"; /* add twitter icon */
+	font-family: "FontAwesome";
+	content: "\f099"; /* add twitter icon */
 }
 
 .whatsappBtn {
-  background: transparent;
+	background: transparent;
 }
 
 .whatsappBtn:before {
-  font-family: "FontAwesome";
-  content: "\f232"; /* add whatsapp icon */
+	font-family: "FontAwesome";
+	content: "\f232"; /* add whatsapp icon */
 }
 
 .main-bg {
-  text-align: -webkit-center;
-  background-color: #5dd4c6;
-  min-height: 250px;
-  height: 100%;
-}
-.flex-column {
-  flex-direction: column;
+	text-align: -webkit-center;
+	background-color: #5dd4c6;
+	min-height: 250px;
+	height: 100%;
 }
 
 .word {
-  color: #5b0099;
-  font-size: 1.6rem;
+	color: #5b0099;
+	font-size: 1.6rem;
+	font-weight: 800;
 }
 
 .small {
-  font-size: small;
-  color: #5b0099;
+	font-size: small;
+	color: #5b0099;
 }
 
 hr {
-  color: #5b0099;
-  width: 50%;
-  height: 2px;
-  background-color: #5b0099;
-  border: none;
-  margin: 30px 0 20px;
+	color: #5b0099;
+	width: 50%;
+	height: 2px;
+	background-color: #5b0099;
+	border: none;
+	margin: 30px 0 20px;
 }
 
 .content {
-  padding: 2%;
-  flex: 1 0 auto;
+	padding: 2%;
+	flex: 1 0 auto;
 }
 
 .footer-bg {
-  background-color: #5b0099;
-  height: 4rem;
-  flex-direction: row;
-  margin-top: 20px;
+	background-color: #5b0099;
+	height: 4rem;
+	flex-direction: row;
+	margin-top: 20px;
 }
 
 .logo {
-  max-width: 100%;
-  max-height: 100%;
+	max-width: 100%;
+	max-height: 100%;
 }
 
 .logo-img {
-  max-width: 100%;
-  max-height: 100%;
+	max-width: 100%;
+	max-height: 100%;
 }
 
 .footer {
-  justify-content: space-around;
+	justify-content: space-around;
 }
 .icon-list {
-  display: flex;
-  align-self: center;
-  margin: 2px;
+	display: flex;
+	align-self: center;
+	margin: 2px;
 }
 
 .share-text {
-  color: #ffc800;
+	color: #ffc800;
 }
+
 .previous {
-    background-color: transparent;
-  color: black;
+	background-color: #5b0099;
+	margin-right: 14px;
+	color: #5dd4c6;
 }
 
 .next {
-    background-color: transparent;
-  color: black;
+	background-color: #5b0099;
+	margin-left: 14px;
+	color: #5dd4c6;
 }
 
-.previous::before{
-    font-family: "FontAwesome";
-    content: "\f060";
+.btn--violete {
+	background-color: #5b0099;
 }
 
-.next::before{
-    font-family: "FontAwesome";
-    content: "\f061";
+.previous::before {
+	font-family: "FontAwesome";
+	content: "\f060";
+}
+
+.next::before {
+	font-family: "FontAwesome";
+	content: "\f061";
 }
 
 .round {
-  border-radius: 50%;
-  border: 1px solid #5b0099;
-  width: 32px; height: 32px;
+	border-radius: 50%;
+	font-size: 1.4rem;
+	border: 2px solid #5b0099;
+	width: 32px;
+	height: 32px;
 }
 
+.current-word {
+	color: #ffffff;
+}
+
+.current-count-word {
+	font-weight: 600;
+}
+
+.max-count-word {
+	font-weight: 600;
+}
+
+.link {
+	display: inline-block;
+	background-color: #5b0099;
+	border-radius: 2px;
+	padding: 3px 2px;
+	text-decoration: none;
+}
+
+/* Utilities */
+.flex-column {
+	flex-direction: column;
+}
+
+.d-flex {
+	display: flex;
+}
+
+/* Constants */
 Violeta {
-  background-color: #5b0099;
+	background-color: #5b0099;
 }
 Blanco {
-  background-color: #ffffff;
+	background-color: #ffffff;
 }
 Coral {
-  background-color: #f47575;
+	background-color: #f47575;
 }
 Amarillo {
-  background-color: #ffc800;
+	background-color: #ffc800;
 }
 Mint {
-  background-color: #5dd4c6;
+	background-color: #5dd4c6;
 }
