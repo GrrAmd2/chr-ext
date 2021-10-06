@@ -1,72 +1,26 @@
 @font-face {
-  font-family: 'DINNeuzeitGroteskStd-Light';
-  src: url('./DINNeuzeitGroteskStd-Light.otf') format('opentype');	
+  font-family: "DINNeuzeitGroteskStd-Light";
+  src: url("./DINNeuzeitGroteskStd-Light.otf") format("opentype");
+}
+.header {
+  display: flex;
+  align-self: center;
+  padding: 3px;
+  font-size: 1.5rem;
+}
+body {
+  font-family: "DINNeuzeitGroteskStd-Light";
+  background-color: #5b0099;
+  width: 350px;
+  font-size: 1rem;
 }
 
-body {
-  font-family: 'DINNeuzeitGroteskStd-Light';
-  color: #939195;
-  width: 256px;
-  font-size: 1rem;
+.container-main {
+  margin: 0 auto;
 }
 
 .d-flex {
   display: flex;
-}
-
-.counter {
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: black;
-}
-
-.container-counter {
-  text-align: center;
-  margin-bottom: 20px;
-  height: 4rem;
-  border-radius: 12px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.counter-text{
-  font-size: 1.5rem;
-  width: 70%;
-}
-
-.male {
-  background-color: #f8d371;
-}
-
-.female {
-  background-color: #a0e6e1;
-}
-
-.container-main {
-  padding: 20px;
-  text-align: -webkit-center;
-}
-
-.footer {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.btn-share {
-  background-color: #262626;
-  border: none;
-  color: white;
-  padding: 10px 14px;
-  font-size: 14px;
-  cursor: pointer;
-  max-width: 50%;
-  font-weight: bold;
-}
-
-.fa {
-  margin-right: 15px;
 }
 
 .back-button {
@@ -81,70 +35,137 @@ body {
   background: #eb2f06;
 }
 
-
-.smGlobalBtn{ /* global button class */
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 2px 2px #999;
-    padding: 0px;
-    text-decoration: none;
-    text-align: center;
-    color: #fff;
-    font-size: 25px;
-    font-weight: normal;
-    line-height: 2em;
-    border-radius: 25px;
-    -moz-border-radius:25px;
-    -webkit-border-radius:25px;
+.icon {
+  color: #ffffff;
+  font-size: 2rem;
+  padding: 5px;
+  border: none;
 }
 
-.facebookBtn{
-    background: #4060A5;
-}
-
-.facebookBtn:before{ /* use :before to add the relevant icons */
-    font-family: "FontAwesome";
-    content: "\f09a"; /* add facebook icon */
-}
-
-.facebookBtn:hover{
-    color: #4060A5;
-    background: #fff;
+.icon:hover {
+  cursor: pointer;
 }
 
 /* twitter button class*/
-.twitterBtn{
-    background: #00ABE3;
+.twitterBtn {
+  background: transparent;
 }
 
-.twitterBtn:before{
-      font-family: "FontAwesome";
-      content: "\f099"; /* add twitter icon */
+.twitterBtn:before {
+  font-family: "FontAwesome";
+  content: "\f099"; /* add twitter icon */
 }
 
-.twitterBtn:hover{
-      color: #00ABE3;
-      background: #fff;
+.whatsappBtn {
+  background: transparent;
 }
 
-.whatsappBtn{
-	background: #25D366;
+.whatsappBtn:before {
+  font-family: "FontAwesome";
+  content: "\f232"; /* add whatsapp icon */
 }
 
-.whatsappBtn:before{
-	font-family: "FontAwesome";
-	content: "\f232"; /* add whatsapp icon */
+.main-bg {
+  text-align: -webkit-center;
+  background-color: #5dd4c6;
+  min-height: 250px;
+  height: 100%;
+}
+.flex-column {
+  flex-direction: column;
 }
 
-.whatsappBtn:hover{
-	color: #fff;
-	background: #128C7E;
+.word {
+  color: #5b0099;
+  font-size: 1.6rem;
 }
 
-.logo{
-  width: 100px;
-  filter: brightness(0);
+.small {
+  font-size: small;
+  color: #5b0099;
+}
+
+hr {
+  color: #5b0099;
+  width: 50%;
+  height: 2px;
+  background-color: #5b0099;
+  border: none;
+  margin: 30px 0 20px;
+}
+
+.content {
+  padding: 2%;
+  flex: 1 0 auto;
+}
+
+.footer-bg {
+  background-color: #5b0099;
+  height: 4rem;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.logo-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.footer {
+  justify-content: space-around;
+}
+.icon-list {
+  display: flex;
+  align-self: center;
+  margin: 2px;
+}
+
+.share-text {
+  color: #ffc800;
+}
+.previous {
+    background-color: transparent;
+  color: black;
+}
+
+.next {
+    background-color: transparent;
+  color: black;
+}
+
+.previous::before{
+    font-family: "FontAwesome";
+    content: "\f060";
+}
+
+.next::before{
+    font-family: "FontAwesome";
+    content: "\f061";
+}
+
+.round {
+  border-radius: 50%;
+  border: 1px solid #5b0099;
+  width: 32px; height: 32px;
+}
+
+Violeta {
+  background-color: #5b0099;
+}
+Blanco {
+  background-color: #ffffff;
+}
+Coral {
+  background-color: #f47575;
+}
+Amarillo {
+  background-color: #ffc800;
+}
+Mint {
+  background-color: #5dd4c6;
 }

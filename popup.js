@@ -1,39 +1,22 @@
-// Counters
-const maleCounter = document.querySelector("#maleCounter");
-const femaleCounter = document.querySelector("#femaleCounter");
-// Share button
-const shareBtn = document.querySelector("#shareBtn");
-const buttonBack = document.querySelector("#buttonBack");
+const currentCountWord = document.getElementById("current-count-word");
+const maxCountWord = document.getElementById("max-count-word");
 
-buttonBack.addEventListener("click", () => {
-	const shareSection = document.getElementById("shareSection");
-	const counterSection = document.getElementById("counterSection");
-	shareSection.style.display = 'none';
-	counterSection.style.display = 'block';
-})
-
-shareBtn.addEventListener("click", () => {
-	showShareSection();
-});
-
-function showShareSection() {
-	const shareSection = document.getElementById("shareSection");
-	const counterSection = document.getElementById("counterSection");
-	shareSection.style.display = 'block';
-	counterSection.style.display = 'none';
-}
-
+const previousButton = document.getElementById("previous");
+const nextButton = document.getElementById("next");
 
 // Send message to run word-filter
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-	chrome.tabs.sendMessage(tabs[0].id, { action: "run-filter" });
+    chrome.tabs.sendMessage(tabs[0].id, { action: "run-filter" });
 });
+let data;
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-	if (message.status === "run-filter-successful") {
-		femaleCounter.innerHTML = message.counters.female;
-		maleCounter.innerHTML = message.counters.male;
-	}
+    if (message.status === "run-filter-successful") {
+        data = message.counters;
+        currentCountWord.innerText = 1;
+        maxCountWord.innerText = data.length;
+        renderView();
+    }
 });
 
 
@@ -42,30 +25,57 @@ document.getElementById("share-twitter").addEventListener("click", () => shareOn
 
 // get current tab url chrome and save in a variable
 async function urlNav() {
-	const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
-	return tabs[0].url;
+    const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
+    return tabs[0].url;
 }
 
 
 async function shareOn(media) {
+    const chromeStore = "https://chrome.google.com/webstore"
+    const url = await urlNav();
+    const socialText = `Con menos mitos y #MásDatos podemos dar vuelta la falta de representatividad y diversidad en los equipos. Instala esta extensión de Chrome y conoce a las personas que quedaron fuera de esta nota ${url}: ${chromeStore} by @chicasentec.`;
 
-	const chromeStore = "https://chrome.google.com/webstore"
-	const url = await urlNav();
-	const socials = {
-		whatsapp: `La brecha de género en tecnología es real y desde Chicas en Tecnología creamos un contador de menciones a mujeres en noticias como: ${url}. Descargá esta extensión de Chrome y #DateCuenta de lo que leés todos los días:${chromeStore}.`,
-		twitter: `La brecha de género en tecnología es real y tenemos un contador de menciones a mujeres en noticias como: ${url} que lo demuestra. Descargá esta extensión de Chrome y #DateCuenta de lo que leés todos los días: ${chromeStore}. @chicasentec`
-	}
-	buildText(socials[media], media);
+    buildText(socialText, media);
 }
 
 function buildText(text, media) {
-	const links = {
-		whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`,
-		twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
-	}
-	window.open(links[media], '_blank');
+    const links = {
+        whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`,
+        twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+    }
+    window.open(links[media], '_blank');
 }
 
-String.prototype.toHtml = function () {
-	return encodeURI(this)
+
+nextButton.addEventListener("click", () => {
+    if (currentCountWord.innerText < maxCountWord.innerText) {
+        currentCountWord.innerText = parseInt(currentCountWord.innerText) + 1;
+    }
+    renderView();
+});
+
+previousButton.addEventListener("click", () => {
+    if (currentCountWord.innerText > 1) {
+        currentCountWord.innerText = parseInt(currentCountWord.innerText) - 1;
+    }
+    renderView();
+});
+
+function renderView() {
+    const currentWord = data[currentCountWord.innerText - 1];
+    const text = currentWord.texto;
+    const small = currentWord.small;
+    const palabra = currentWord.palabra;
+    console.log({ text, small, palabra });
+    const linkElement = `
+    Entra <a href="https://chicasentecnologia.org/" target="_blank"><b>aquí</b></a> y entérate quiénes son. #MásDatos.
+    `
+    const html = `
+    <h3 class="word">${text}</h3>
+    <hr class="separator">
+    <span class="small">${small || ""}
+    ${linkElement}
+    </span>`
+    document.getElementById("current-word").innerHTML = currentWord.palabra.toUpperCase();
+    document.querySelector(".content").innerHTML = html;
 }

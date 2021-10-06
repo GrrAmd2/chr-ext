@@ -1,61 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<!-- CSS -->
-		<link rel="stylesheet" href="popup.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<!-- JAVASCRIPT -->
-		<script src="./popup.js" defer></script>
-	</head>
+    <!-- CSS -->
+    <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-	<body class="container-main">
-		<section class="d-flex" id="counterSection" style="display: block">
-			<h2>En esta web</h2>
+    <!-- JAVASCRIPT -->
+    <script src="./popup.js" defer></script>
+</head>
 
-			<div class="d-flex container-counter female">
-				<span class="counter-text">Términos en femenino </span>
-				<span id="femaleCounter" class="counter">00</span>
-			</div>
-			<div class="container-counter d-flex male">
-				<span class="counter-text">Términos en masculino </span>
+<body class="container-main">
 
-				<span id="maleCounter" class="counter">00</span>
-			</div>
+    <main class="d-flex flex-column main-bg">
+        <div class="header">
+            <button class="previous round" id="previous"></button>
+            <div class="counter-words">
+                <span id="current-count-word"></span> /
+                <span id="max-count-word"></span>
+            </div>
+            <button class="next round" id="next"></button>
+        </div>
+        <div class="current-word" id="current-word"></div>
+        <div class="content">
 
-			<footer class="d-flex footer">
-				<a
-					href="https://chicasentecnologia.org/"
-					target="_blank"
-					rel="noopener"
-				>
-					<img
-						src="https://chicasentecnologia.org/wp-content/uploads/chicas_registrado.svg"
-						alt="Logo"
-						class="logo"
-					/>
-				</a>
-				<button id="shareBtn" class="btn-share">
-					<i class="fa fa-share"></i>Share
-				</button>
-			</footer>
-		</section>
+        </div>
 
-		<section class="d-flex" id="shareSection" style="display: none">
-			<button class="btn-share" id="buttonBack">
-				<i class="fa fa-arrow-left"></i>Volver
-			</button>
+        <div class="d-flex footer-bg footer">
+            <div class="share-text">
+                <h3>Comparte</h3>
+            </div>
+            <div class="icon-list">
+                <button class="icon whatsappBtn" id="share-whatsapp"></button>
+                <button class="icon twitterBtn" id="share-twitter"></button>
+            </div>
+            <div class="logo">
+                <a href="https://chicasentecnologia.org/" target="_blank" rel="noopener">
+                    <img src="vectorpaint.svg" alt="Logo" class="logo-img" />
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
 
-			<h3><i>#DateCuenta</i> de la brecha de género en tecnología.</h3>
-			<button class="whatsappBtn smGlobalBtn" id="share-whatsapp"></button>
-			<button class="twitterBtn smGlobalBtn" id="share-twitter"></button>
-		</section>
-	</body>
 </html>
