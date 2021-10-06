@@ -20,6 +20,7 @@ body {
 	margin-bottom: 15px;
 	padding: 3px;
 	font-size: 1.5rem;
+    align-items: center;
 }
 
 .back-button {
@@ -131,13 +132,11 @@ hr {
 
 .previous {
 	background-color: #5b0099;
-	margin-right: 14px;
 	color: #5dd4c6;
 }
 
 .next {
 	background-color: #5b0099;
-	margin-left: 14px;
 	color: #5dd4c6;
 }
 
@@ -157,10 +156,11 @@ hr {
 
 .round {
 	border-radius: 50%;
-	font-size: 1.4rem;
-	border: 2px solid #5b0099;
-	width: 32px;
-	height: 32px;
+    font-size: 1.5rem;
+    border: 2px solid #5b0099;
+    width: 44px;
+    height: 44px;
+    margin: 0 20px;
 }
 
 .current-word {
@@ -193,6 +193,15 @@ hr {
 
 .d-flex {
 	display: flex;
+}
+
+.counter-words {
+    font-size: 2rem;
+}
+
+.disabled{
+    background-color: #5dd4c6;
+    color: #5b0099;
 }
 
 /* Constants */
