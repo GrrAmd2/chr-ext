@@ -7,7 +7,7 @@
 body {
 	font-family: "DINNeuzeitGroteskStd-Light";
 	background-color: #5b0099;
-	width: 350px;
+	width: 380px;
 	font-size: 1rem;
 	margin: 0 auto;
 }
@@ -92,6 +92,8 @@ hr {
 }
 
 .content {
+	width: 80%;
+	margin: 0 auto;
 	padding: 2%;
 	flex: 1 0 auto;
 }
@@ -114,6 +116,7 @@ hr {
 }
 
 .footer {
+	width: 80%;
 	justify-content: space-around;
 }
 .icon-list {
@@ -138,8 +141,8 @@ hr {
 	color: #5dd4c6;
 }
 
-.btn--violete {
-	background-color: #5b0099;
+.btn--transparent {
+	background-color: transparent;
 }
 
 .previous::before {
@@ -161,23 +164,26 @@ hr {
 }
 
 .current-word {
+	font-size: 1.4rem;
+	font-weight: bold;
 	color: #ffffff;
 }
 
 .current-count-word {
-	font-weight: 600;
+	font-weight: bolder;
 }
 
 .max-count-word {
-	font-weight: 600;
+	font-weight: bolder;
 }
 
 .link {
 	display: inline-block;
 	background-color: #5b0099;
-	border-radius: 2px;
-	padding: 3px 2px;
+	border-radius: 5px;
+	padding: 2px 13px 3px;
 	text-decoration: none;
+	color: #5dd4c6;
 }
 
 /* Utilities */

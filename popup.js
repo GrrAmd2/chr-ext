@@ -79,20 +79,34 @@ function buildText(text, media) {
 }
 
 nextButton.addEventListener("click", () => {
+	if (currentCountWord.innerText > 1) {
+		previousButton.classList.add("btn--transparent");
+	} else {
+		previousButton.classList.remove("btn--transparent");
+	}
+
 	if (currentCountWord.innerText < maxCountWord.innerText) {
 		currentCountWord.innerText = parseInt(currentCountWord.innerText) + 1;
-	}
-	if (currentCountWord == 1) {
-		previousButton.classList.remove("btn--violete");
+		nextButton.classList.add("btn--transparent");
 	} else {
-		previousButton.classList.add("btn--violete");
+		nextButton.classList.remove("btn--transparent");
 	}
+
 	renderView();
 });
 
 previousButton.addEventListener("click", () => {
+	if (currentCountWord.innerText === maxCountWord.innerText) {
+		nextButton.classList.remove("btn--transparent");
+	} else {
+		nextButton.classList.add("btn--transparent");
+	}
+
 	if (currentCountWord.innerText > 1) {
 		currentCountWord.innerText = parseInt(currentCountWord.innerText) - 1;
+		previousButton.classList.add("btn--transparent");
+	} else {
+		previousButton.classList.remove("btn--transparent");
 	}
 	renderView();
 });
@@ -104,14 +118,13 @@ function renderView() {
 	const palabra = currentWord.palabra;
 	// console.log({ text, small, palabra });
 	const linkElement = `
-    Entra <a class="link" href="https://chicasentecnologia.org/" target="_blank"><b>aquí</b></a> y entérate quiénes son. #MásDatos.
+    En esta nota hay personas que se están quedando afuera. 
+    Entra <a class="link" href="https://chicasentecnologia.org/" target="_blank"><b>aquí</b></a> y entérate quiénes son.
     `;
 	const html = `
     <h3 class="word">${text}</h3>
     <hr class="separator">
-    <span class="small">${small || ""}
-    ${linkElement}
-    </span>`;
+    <span class="small">${linkElement}</span>`;
 	document.getElementById(
 		"current-word"
 	).innerHTML = `[ ${currentWord.palabra.toUpperCase()} ]`;
