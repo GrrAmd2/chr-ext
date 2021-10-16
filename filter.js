@@ -301,6 +301,13 @@ const replaceWords = (className = "default-mark") => {
 		}
 		instance.mark(word.palabra, { className, accuracy: "exactly" });
 	});
+
+	const markedElements = document.getElementsByClassName("default-mark");
+
+	for (const iElement = 0; iElement < markedElements.length; iElement++) {
+		markedElements[iElement].style.backgroundColor = "#ffc800 !important";
+	}
+
 	return tempCounter;
 };
 
