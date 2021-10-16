@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "#MásDatos",
 	"version": "0.0.1",
-	"description": "Highlight male and female words from a list and share results to Facebook, Tweeter and WhatsApp",
+	"description": "Resalta palabras vinculadas a carreras en STEM y muestra datos sobre la brecha de género.",
 
 	"action": {
 		"default_icon": {
