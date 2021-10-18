@@ -35,10 +35,15 @@ async function urlNav() {
 }
 
 async function shareOn(media) {
-    const chromeStore = "https://chrome.google.com/webstore";
-    const url = await urlNav();
-    const socialText = `Con menos mitos y #MásDatos podemos dar vuelta la falta de representatividad y diversidad en los equipos. Instala esta extensión de Chrome y conoce a las personas que quedaron fuera de esta nota ${url}: ${chromeStore} by @chicasentec.`;
+	const chromeStore = "https://chrome.google.com/webstore";
+	const url = await urlNav();
+	let socialText;
 
+	if (media === "whatsapp") {
+		socialText = `Con #MásDatos podemos dar vuelta la falta de representatividad y diversidad en los equipos de STEM. Instala esta extensión de Chrome ${chromeStore} by @chicasentec y conoce a las personas que quedaron fuera de esta nota ${url}`;
+	} else if (media === "tweeter") {
+		socialText = `Con #MásDatos podemos dar vuelta la falta de representatividad y diversidad en los equipos de STEM. Instala esta extensión de Chrome y conoce a las personas que quedaron fuera de esta nota ${url}: ${chromeStore} by @chicasentec`;
+	}
     buildText(socialText, media);
 }
 

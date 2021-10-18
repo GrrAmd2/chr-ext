@@ -1,8 +1,8 @@
 {
 	"manifest_version": 3,
-	"name": "Chicas en tecnologías",
+	"name": "#MásDatos",
 	"version": "0.0.1",
-	"description": "Highlight male and female words from a list and share results to Facebook, Tweeter and WhatsApp",
+	"description": "Resalta palabras vinculadas a carreras en STEM y muestra datos sobre la brecha de género.",
 
 	"action": {
 		"default_icon": {
@@ -10,7 +10,7 @@
 			"24": "icon.png",
 			"32": "icon.png"
 		},
-		"default_title": "Chicas en tecnología",
+		"default_title": "#MásDatos",
 		"default_popup": "popup.html"
 	},
 	"icons": {

@@ -301,12 +301,19 @@ const replaceWords = (className = "default-mark") => {
                 tempCounter.push(findWord);
             }
 
-            // Cuenta todas las veces que aparece la palabra en el texto
-            //counter += body.innerText.match(reg).length;
-        }
-        instance.mark(word.palabra, { className, accuracy: "exactly" });
-    });
-    return tempCounter;
+			// Cuenta todas las veces que aparece la palabra en el texto
+			//counter += body.innerText.match(reg).length;
+		}
+		instance.mark(word.palabra, { className, accuracy: "exactly" });
+	});
+
+	const markedElements = document.getElementsByClassName("default-mark");
+
+	for (const iElement = 0; iElement < markedElements.length; iElement++) {
+		markedElements[iElement].style.backgroundColor = "#ffc800 !important";
+	}
+
+	return tempCounter;
 };
 
 const filterContent = () => {
