@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#MásDatos</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/home.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>#MásDatos</h1>
+    </header>
+
+    <main>
+      <button id="download">Descargar palabras</button>
+      <button id="upload">Subir nuevas palabras</button>
+
+      <form
+        class="hidden"
+        action="/api/words"
+        method="POST"
+        id="form"
+        enctype="multipart/form-data"
+      >
+        <div class="container">
+          <input type="file" name="wordsFile" id="file" required />
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </main>
+  </body>
+</html>
