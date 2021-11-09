@@ -11,4 +11,5 @@
 .default-mark, mark {
     padding: .2em;
     background-color: #5b0099;
+    color: #fff;
 }
